@@ -1,8 +1,74 @@
 <html>
   <head>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
   </head>
   <body>
-   chaddy
+    <div class='container'>
+      <div class='row'>
+        <div class='col-md-6'>
+          <h1>Find Your Sugarrr Daddy!</h1>
+          <h3>Register or Login Today</h3>
+          <p>Looking for Sugarrr Babies? <a href="">Log in Here</a></p>
+
+
+          <form action='/create' method='post'>
+            <div class="form-group">
+              <label for="name"> Name :</label>
+              <input type="text" class="form-control" id="full_name" name='full_name'>
+            </div>
+            <div class="form-group">
+              <label for="description">User Name:</label>
+              <input type="text" class="form-control" id="user_name" name='user_name'>
+            </div>
+            <div class="form-group">
+              <label for="description">Email:</label>
+              <input type="text" class="form-control" id="email" name='email'>
+            </div>
+            <div class="form-group">
+              <label for="description">Phone Number:</label>
+              <input type="text" class="form-control" id="phone_number" name='phone_number'>
+            </div>
+            <div class="form-group">
+              <label for="description">Password:</label>
+              <input type="password" class="form-control" id="password" name='password'>
+            </div>
+            <p>*Password should be at least 3 characters long</p>
+            <div class="form-group">
+              <label for="description">Confirm Password:</label>
+              <input type="password" class="form-control" id="confirm_pass" name='confirm_pass'>
+            </div>
+
+
+            <button type="submit" class="btn btn-default">Register</button>
+          </form><br><br>
+          {% with messages = get_flashed_messages() %}
+		    {% if messages %}
+		      {% for message in messages %}
+		        <p>{{message}}</p>
+		      {% endfor %}
+		    {% endif %}
+		  {% endwith %}
+			
+			<h1>Login</h1>
+          <form action='/login' method='post'>
+          	<div class="form-group">
+              <label for="name">Email :</label>
+              <input type="text" class="form-control" id="email" name='email'>
+            </div>
+            <div class="form-group">
+              <label for="description">Password:</label>
+              <input type="password" class="form-control" id="password" name='password'>
+            </div>
+
+            <button type="submit" class="btn btn-default">Add</button>
+          </form>
   </body>
 </html>
