@@ -1,0 +1,16 @@
+.navi{
+	text-align:right;
+}
+.info{
+	width:100px;
+	display: inline-block;
+}
+img{
+	border:1px;
+}
+#container{ 
+	list-style-type: none;
+}
+.col-md-4{
+	margin-top: 200px;
+}
