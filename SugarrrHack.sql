@@ -31,7 +31,8 @@ CREATE TABLE `users` (
   `email` varchar(225) DEFAULT NULL,
   `phone_number` varchar(45) DEFAULT NULL,
   `pw_hash` varchar(225) DEFAULT NULL,
-  `img` varchar(45) DEFAULT NULL,
+  `img` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
