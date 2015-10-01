@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="Sugarrrr Chaddy" content="Sugarrrr Chaddy is a place where people can meet people that want to do stuff">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>confirmation</title>
+
+   <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="SHORTCUT ICON" href="app/images/favicon.ico">
+    <link rel="icon" type="image/gif" href="animated_favicon1.gif">
+      
+      <style>
+          form {
+              margin-top: 200px;
+              width:100%;;
+            }
+            #footer {
+              background-color:orange;
+              color:white;
+              clear:both;
+              text-align:center;
+              padding:15px; 
+              font-family: monaco;
+              font-size: 14px;
+            }
+      </style>
+
+  </head>
+  <body>
+    <div class='container text-center'>
+
+      <form action="/" method="POST">
+            <p></p>
+            <textarea placeholder="Tell her something about you in 144 characters or less" rows="3" cols="40" maxlength="144"></textarea>
+            <p></p>      
+            <button>Send her a message</button></br>
+            <p></p>
+            <button>Back to Profiles</button>
+      </form>
+    </div>
+    <div id="footer" style="width:100%">
+        Copyright © Sugarrr Chady
+    </div>
+
+    <!-- <script>
+
+     window.confirm("I want to meet this girl");
+        if (r == true) {
+            x = "";
+        } else {
+         x = "Back to Profiles";
+        }    
+    </script> -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
+
+</html>
+
