@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	<title>Sugarrr -- Welcome</title>
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
@@ -14,8 +15,8 @@
 		<!-- <link rel="stylesheet" href="/static/css/styles.css" type="text/css"> -->	
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script type="text/javascript" src="script.js"></script>
-		    <link rel="SHORTCUT ICON" href="favicon.ico">
-    		<link rel="icon" type="image/gif" href="images/favicon.ico">
+        <link rel="icon" type="image/gif" href="{{ url_for('static', filename='favicon.ico') }}">
+
 
 		<title></title>
 		<style>
@@ -72,12 +73,14 @@
 		        <!-- <li class="active"><a href="#">Home</a></li> -->
 				
 		      </ul>
+		      <form action="/main" method="post">
 		    <div class="btn-group">
-			  <a href="index.html"><button type="button" class="btn btn-primary">Login</button></a>
-			  <a href="index.html"><button type="button" class="btn btn-primary">Register</button></a>
+			  <a href="/main"><button type="button" class="btn btn-primary">Login</button></a>
+			  <a href="/main"><button type="button" class="btn btn-primary">Register</button></a>
 			</div>
 		    </div>
 		  </div>
+		  </form>
 <!-- 		  <div id='login_center'>
 		  	<input type="text" placeholder="email"><br>
 		  	<input type="password" placeholder="pasword"><br><br>

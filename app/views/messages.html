@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Messages</title>
+  <title>Sugar -- messages</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">  
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-          <link rel="SHORTCUT ICON" href="favicon.ico">
-        <link rel="icon" type="image/gif" href="images/favicon.ico">
+        <link rel="icon" type="image/gif" href="{{ url_for('static', filename='favicon.ico') }}">
+
 
               <style>
           form {
@@ -40,7 +40,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><font color=#FF6633>Sugarrr</font></a>
+        <a class="navbar-brand" href="#"><font color=orange>Sugarrr</font></a>
       </div>
 
       <div class="collapse navbar-collapse">
@@ -73,13 +73,11 @@
       </tr>
     </thead>
     <tbody>   
-    {% for user in user %}
       <tr class="meow"> 
         <td>{{user['user_name']}}</td>
         <td>{{user['messages']}}</td>
         <td><a href="Accept"> Accept </a> | <a href=""> No Thanks</a></td>
       </tr>
-      {% endfor %}
     </tbody>
   </table>
   </div>

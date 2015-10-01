@@ -7,7 +7,8 @@ class Users(Controller):
 
 
     def index(self):
-
+        return self.load_view('landing_page.html')
+    def main(self):
         return self.load_view('index.html')
 
     def create(self):
@@ -34,7 +35,7 @@ class Users(Controller):
         else:
             for message in create_status['errors']:
                 flash(message, 'you have errors!')
-            return redirect('/')
+            return redirect('/main')
 
 
     def info(self):
@@ -65,4 +66,4 @@ class Users(Controller):
         else:
             for message in user_login['errors']:
                 flash(message,'errors')
-            return redirect('/')
+            return redirect('/main')

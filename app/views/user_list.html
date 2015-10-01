@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>Messages</title>
+      <title>Sugarrr -- users</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-              <link rel="SHORTCUT ICON" href="favicon.ico">
-        <link rel="icon" type="image/gif" href="images/favicon.ico">
+        <link rel="icon" type="image/gif" href="{{ url_for('static', filename='favicon.ico') }}">
                   <style>
             #footer {
               background-color:orange;
@@ -25,7 +24,7 @@
       <!-- Wrap all page content here -->
       <div id="wrap">
          <!-- Fixed navbar -->
-         <div id="navbar navbar-default navbar-fixed-top">
+         <div class="navbar navbar-default navbar-fixed-top">
             <div class="container">
             <div class="navbar-header">
                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -52,7 +51,7 @@
       <div class="container">
          <div class="page-header">
             <br>
-            <h1>Users who are interested in you:</h1>
+            <h1>Find your Chad:</h1>
          </div>
          <table class="table">
             <thead>
