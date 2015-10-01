@@ -21,6 +21,14 @@ img{
 #container{ 
 	list-style-type: none;
 }
-.col-md-4{
-	margin-top: 200px;
+
+#footer {
+background-color:orange;
+margin-top: 200px;
+color:white;
+clear:both;
+text-align:center;
+padding:15px; 
+font-family: monaco;
+font-size: 14px;
 }

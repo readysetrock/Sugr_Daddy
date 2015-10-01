@@ -1,22 +1,83 @@
-<html>
-  <head>
-  </head>
-  <body>
-  <div id='wrapper'>
-  <div id='users'>
-    <div id='header'>
-      <h1>Choose:</h1>
-      <a href=""
-    </div>
-      <div id="posts">
-            {% for user in user %}
-          <div class='post'>
-            <img src="{{user['img']}}" alt="#">
-            <p>{{ user['description'] }}</p>
-            <a href="/profile/{{user['id']}}">{{user['user_name']}}</a>
-          </div>
-            {% endfor %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Messages</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+              <link rel="SHORTCUT ICON" href="favicon.ico">
+        <link rel="icon" type="image/gif" href="images/favicon.ico">
+                  <style>
+            #footer {
+              background-color:orange;
+              color:white;
+              clear:both;
+              text-align:center;
+              padding:15px; 
+              font-family: monaco;
+              font-size: 14px;
+            }
+      </style>
+   </head>
+   <body>
+      <!-- Wrap all page content here -->
+      <div id="wrap">
+         <!-- Fixed navbar -->
+         <div id="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="#"><font color=#FF6633>Sugarrr</font></a>
+            </div>
+            <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav">
+                  <li class="active">
+                     <a href="/info">Home</a>
+                  </li>
+                  <li><a href="/messages/{{session['id']}}">Messages</a></li>
+                  <li><a href="/profile/{{session['id']}}">Profile</a></li>
+                  <li><a href="/">Log Out</a></li>
+               </ul>
+            </div>
+            <!--/.nav-collapse -->
+         </div>
       </div>
-    </div>
-  </body>
+      <!-- Begin page content -->
+      <div class="container">
+         <div class="page-header">
+            <br>
+            <h1>Users who are interested in you:</h1>
+         </div>
+         <table class="table">
+            <thead>
+               <tr>
+                  <th>User</th>
+                  <th>Message</th>
+                  <th>Options</th>
+               </tr>
+            </thead>
+            <tbody>
+               {% for user in user %}
+               <tr class="meow">
+                  <td><img src="{{user['img']}}" alt="#">
+                     {{ user['description']}}
+                  </td>
+                  <td>{{user['messages']}}</td>
+                  <td><a href="messages.html"> Send a message!</a></td>
+               </tr>
+               {% endfor %}
+            </tbody>
+         </table>
+      </div>
+      </div>
+        <div id="footer" style="width:100%">
+        Copyright © Sugarrr Chady
+        </div>
+   </body>
 </html>
