@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 .navi{
 	text-align:right;
 }
@@ -23,4 +24,14 @@ img{
 }
 .col-md-4{
 	margin-top: 200px;
+=======
+#footer {
+background-color:orange;
+color:white;
+clear:both;
+text-align:center;
+padding:15px; 
+font-family: monaco;
+font-size: 14px;
+>>>>>>> Stashed changes
 }
