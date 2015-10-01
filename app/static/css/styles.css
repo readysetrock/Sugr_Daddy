@@ -1,3 +1,9 @@
-* {
-  font-family: monaco;
+#wrapper{
+	background-color: 
 }
+.info{
+	width:100px;
+	display: inline-block;
+}
+img{
+	border:1px;

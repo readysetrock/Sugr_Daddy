@@ -1,13 +1,23 @@
 .navi{
 	text-align:right;
 }
+
+#wrapper{
+	background-color: red;
+}
 .info{
 	width:100px;
 	display: inline-block;
 }
 img{
 	border:1px;
+
 }
+
+#first_image{
+	width: 60px;
+}
+
 #container{ 
 	list-style-type: none;
 }
