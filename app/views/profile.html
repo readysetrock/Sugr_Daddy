@@ -14,13 +14,13 @@
          <div class="col-md-4">
          
         <button type="Submit">Update profile picture</button>
-               <p> user[{{'description'}}]</p>
+               <p> {{user['description']}}</p>
                <button type="Submit">Update</button>
             </form>
          </div>
       </div>
       <div class="navi">
-         <a href="/">Home</a> | <a href="messages.html">Messages</a>
+         <a href="/info">Home</a> | <a href="/messages/{{user['id']}}">Messages</a>
       </div>
    </body>
 </html>

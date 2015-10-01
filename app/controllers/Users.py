@@ -46,6 +46,9 @@ class Users(Controller):
         user = self.models['User'].get_user_by_id(id)
         return self.load_view('profile.html', user=user[0])
 
+    def messages(self, id):
+        user = self.models['User'].get_user_by_id(id)
+        return self.load_view('messages.html', user=user[0])
 
     def login(self):
         print request.form['email']
