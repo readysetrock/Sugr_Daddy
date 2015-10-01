@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `sugarrrhack` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
-USE `SugarrrHack`;
 -- MySQL dump 10.13  Distrib 5.6.24, for osx10.8 (x86_64)
 --
 -- Host: 127.0.0.1    Database: SugarrrHack
@@ -32,11 +30,11 @@ CREATE TABLE `users` (
   `phone_number` varchar(45) DEFAULT NULL,
   `pw_hash` varchar(225) DEFAULT NULL,
   `img` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
+  `description` varchar(225) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +43,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Eddy Lee','blee','lee@bruce.com','5108454321','$2a$12$5VdCccaNcrc0mDo4OS5e2uZtRR7lFC8CYLos.K2bSbX2orE29WIJa',NULL,'2015-09-30 16:49:20','2015-09-30 16:49:20');
+INSERT INTO `users` VALUES (3,'Turtle Tom','Tommy','tom@tom.yahoo','1111111111','$2a$12$lixVOY0uq8VNVRkUmIAWausBu7gEp5iTZUktyCorOJrF6Uw.hCzzm',NULL,'2015-09-30 18:17:41','2015-09-30 18:17:41',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-09-30 17:11:27
+-- Dump completed on 2015-09-30 18:39:30
