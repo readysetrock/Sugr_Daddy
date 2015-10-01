@@ -28,7 +28,7 @@ class Users(Controller):
             session['email'] = create_status['user']['email']
             session['password'] = create_status['user']['pw_hash']
             
-            return self.load_view('user_list.html')
+            return redirect('/info')
             # return redirect('/')
             # return redirect('/success')
         else:
@@ -37,12 +37,15 @@ class Users(Controller):
             return redirect('/')
 
 
-    def display_success(self):
-        return self.load_view('show.html')
-
-    def info(self, id):
-        user = self.models['User'].get_users(id)
+    def info(self):
+        user = self.models['User'].get_users()
         return self.load_view('user_list.html', user=user)
+
+
+    def profile(self, id):
+        user = self.models['User'].get_user_by_id(id)
+        return self.load_view('profile.html', user=user[0])
+
 
     def login(self):
         print request.form['email']
@@ -55,6 +58,6 @@ class Users(Controller):
         if user_login['status'] == True:
             session['email'] = user_login['user']['email']
             session['id'] = user_login['user']['id']
-            return self.load_view('user_list.html')
+            return redirect('/info')
         else:
             return redirect('/')

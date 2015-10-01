@@ -37,8 +37,9 @@ class User(Model):
         else:
             password = info['password']
             hashed_pw = self.bcrypt.generate_password_hash(password)
-            query = 'INSERT INTO users (full_name, user_name, email, pw_hash, created_at, updated_at) VALUES ("{}", "{}", "{}", "{}", NOW(), NOW())'.format(info['full_name'], info['user_name'], info['email'], hashed_pw)
-            self.db.query_db(query)
+            query = 'INSERT INTO users (full_name, user_name, email, pw_hash, created_at, updated_at) VALUES (%s,%s,%s,%s, NOW(), NOW())'
+            data=[info['full_name'], info['user_name'], info['email'], hashed_pw]
+            self.db.query_db(query, data)
             get_user_query = "SELECT * FROM users ORDER BY id DESC LIMIT 1"
             users = self.db.query_db(get_user_query)
             return { "status": True, "user": users[0] }
@@ -51,9 +52,9 @@ class User(Model):
         query = 'SELECT * FROM users WHERE id="{}"'.format(id)
         return self.db.query_db(query)
 
-    def login_user(self, info):
-        password = info['password']
-        user_query = "SELECT * FROM users WHERE email = '{}' LIMIT 1".format(info['email'])
+    def login_user(self, login_info):
+        password = login_info['password']
+        user_query = "SELECT * FROM users WHERE email = '{}' LIMIT 1".format(login_info['email'])
         users = self.db.query_db(user_query)
         if users[0]:
             if self.bcrypt.check_password_hash(users[0]['pw_hash'], password):

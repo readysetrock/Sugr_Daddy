@@ -3,14 +3,14 @@
   </head>
   <body>
   <div id='wrapper'>
-  <div id='babies'>
+  <div id='users'>
       <h1>Choose:</h1>
       <div id="posts">
-            {% for post in user %}
+            {% for user in user %}
           <div class='post'>
-            <img src="#herimage" alt="#"{{post['/imagesource'>
-            <p>{{ post['description'] }}</p>
-            <a href="#herprofile">{{post['name']}}</a>
+            <img src="{{user['img']}}" alt="#">
+            <p>{{ user['description'] }}</p>
+            <a href="/profile/{{user['id']}}">{{user['user_name']}}</a>
           </div>
             {% endfor %}
       </div>
