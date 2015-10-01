@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
       <title>Girls</title>
    </head>
-   <body>
+   <body>   
+   <form action="/status" method="POST">
       <div class="col-md-8">
-         <p><img src="https://pbs.twimg.com/profile_images/1990249248/image.jpg" width='200' height='200' alt="profile" id="profile"/>
-        <button type="Submit">Update profile picture</button>
-		</p>
+         <p><img src="{{img}}" width='200' height='200' alt="profile" id="profile"/>
          <div class="col-md-4">
-            <form action="/status" method="POST">
+         
+        <button type="Submit">Update profile picture</button>
 
-               <p> blahblah blahblahblahblah
-               blahblahblahblah blahblahblahblahblahblahblahblahblahblah</p>
+               <p> {{status}}</p>
                <button type="Submit">Update</button>
             </form>
          </div>
