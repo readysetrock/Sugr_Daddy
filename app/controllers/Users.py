@@ -63,4 +63,6 @@ class Users(Controller):
             session['id'] = user_login['user']['id']
             return redirect('/info')
         else:
+            for message in user_login['errors']:
+                flash(message,'errors')
             return redirect('/')

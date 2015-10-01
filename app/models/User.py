@@ -53,13 +53,28 @@ class User(Model):
         return self.db.query_db(query)
 
     def login_user(self, login_info):
-        password = login_info['password']
-        user_query = "SELECT * FROM users WHERE email = '{}' LIMIT 1".format(login_info['email'])
-        users = self.db.query_db(user_query)
-        if users[0]:
-            if self.bcrypt.check_password_hash(users[0]['pw_hash'], password):
-                return { 
-                "status": True, 
-                "user": users[0] 
-                }
-        return False
+        EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]*$')
+        errors = []
+
+        if not login_info['email']:
+            errors.append('E-mail field required!')
+        elif not EMAIL_REGEX.match(login_info['email']):
+            errors.append('Pease enter a valid e-mail address!')
+
+        if not login_info['password']:
+            errors.append('Password field required!')
+        if errors:
+            return {'status': False, 'errors': errors}
+        else:
+            password = login_info['password']
+            user_query = "SELECT * FROM users WHERE email = '{}' LIMIT 1".format(login_info['email'])
+            users = self.db.query_db(user_query)
+            if users[0]:
+                if self.bcrypt.check_password_hash(users[0]['pw_hash'], password):
+                    return { 
+                    "status": True, 
+                    "user": users[0] 
+                    }
+                else:
+                    errors.append('Password incorrect!')
+                    return {'status': False, 'errors': errors}
