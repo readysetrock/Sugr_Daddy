@@ -1,11 +1,3 @@
-"""
-    Sample Controller File
-
-    A Controller should be in charge of responding to a request.
-    Load models to interact with the database and load views to render them to the client.
-
-    Create a controller using this template
-"""
 from system.core.controller import *
 
 class Users(Controller):
@@ -24,7 +16,6 @@ class Users(Controller):
              "full_name" : request.form['full_name'],
              "user_name" : request.form['user_name'],
              "email" : request.form['email'],
-             "phone_number" : request.form['phone_number'],
              "password" : request.form['password'],
              "pw_confirmation" : request.form['confirm_pass']
         }
@@ -35,7 +26,6 @@ class Users(Controller):
             session['full_name'] = create_status['user']['full_name']
             session['user_name'] = create_status['user']['user_name']
             session['email'] = create_status['user']['email']
-            session['phone_number'] = create_status['user']['phone_number']
             session['password'] = create_status['user']['pw_hash']
             
             return self.load_view('user_list.html')
@@ -68,5 +58,3 @@ class Users(Controller):
             return self.load_view('user_list.html')
         else:
             return redirect('/')
-
-
