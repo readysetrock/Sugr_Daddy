@@ -23,12 +23,15 @@
         <th>Options</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody>   
+    {% for user in users %}
       <tr class="success">
-        <td>{{}}</td>
-        <td>{{}}</td>
+   
+        <td>user{{['user_name']}}</td>
+        <td>user{{['messages']}}</td>
         <td><a href="Accept"> Accept </a> | <a href=""> No Thanks</a></td>
       </tr>
+      {% endfor %}
     </tbody>
   </table>
   </div>
