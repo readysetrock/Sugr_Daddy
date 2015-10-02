@@ -20,6 +20,17 @@
 
 		<title></title>
 		<style>
+		* {
+			margin: 0px;
+			padding: 0px;
+
+		}
+
+/*		#wrapper {
+			width: 960px;
+			height: 750px;
+			margin: 0px auto;
+		}*/
 		html { 
 			  background: url("http://hypeorlando.s3.amazonaws.com/sites/88/2014/10/sourcefed-2224-golddigger-111413-large.thumb_.jpg") no-repeat center center fixed; 
 			  -webkit-background-size: cover;
@@ -51,12 +62,14 @@
 			}
 
 			h2 { 
-			   position: absolute; 
+			   position: absolute;
+			   float:none; 
 			   top: 700px; 
-			   left: 350px; 
+			   left: auto; 
 			   width: 100%; 
 			   color: #990000;
 			   font-size: 80px;
+			   text-align: center;
 			}
 		/*	#wrapper {
 			    
@@ -70,7 +83,7 @@
 	</head>
 	<body>
 		<div id="wrapper">
-		<nav class="navbar navbar-default">
+		<nav class="navbar navbar-default navbar-fixed-top">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
 		      <a class="navbar-brand" href="#"><span><b>SugaRRR</b></span></a>
