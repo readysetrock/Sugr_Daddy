@@ -64,7 +64,7 @@
             <tbody>
                {% for user in user %}
                <tr class="meow">
-                  <td><img src="{{user['img']}}" alt="#">{{user['user_name']}}
+                  <td><img src="{{user['img']}}" alt="#" height=100 width=100>{{user['user_name']}}
                   </td>
                   <td>{{user['description']}}</td>
                   <td><a href='/confirmation/{{session['id']}}/{{user['id']}}'> Send a message!</a></td>

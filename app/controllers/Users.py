@@ -69,6 +69,10 @@ class Users(Controller):
         user = self.models['User'].get_user_by_id(id)
         return self.load_view('profile.html', user=user[0])
 
+    def delete(self, id):
+        user=self.models['User'].delete_message(id)
+        return redirect('/messages/{}'.format(id))
+
     def messages(self, id):
         user = self.models['User'].get_message(id)
         print user

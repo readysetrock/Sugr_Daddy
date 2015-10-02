@@ -56,12 +56,12 @@
   <div class="container">
     <div class="page-header">
         <br>
-
       <h1>Update your profile here:</h1>
-      <form action="/update_profile/{{session['id']}}" method="POST">
-         <p><img src="{{img}}" width='200' height='200' alt="profile" id="profile"/>               
+      <p><img src="{{user['img']}}" width='200' height='200' alt="profile" id="profile"/></p>
+      <form action="/update_profile/{{session['id']}}" method="POST">              
          </p>
          <p><button type="Submit">Change profile picture</button>
+          <h3>{{user['description']}}</h3>
                    <p><textarea name='update_profile'>Enter what you are looking for here and update!</textarea></p>         
                <p><button type="Submit">Update</button></p>
       </form>

@@ -67,6 +67,10 @@ class User(Model):
         query='INSERT INTO messages (session_id, user_id, messages, created_at, updated_at) VALUES (%s, %s, %s, NOW(), NOW())'
         data=[info['session_id'], info['user_id'], info['messages']]
         return self.db.query_db(query, data)
+        
+    def delete_message(self, id):
+        query='DELETE FROM messages WHERE session_id="{}"'.format(id)
+        return self.db.query_db(query)
 
     def update_profile(self, info):
         query='UPDATE users SET description= %s, updated_at=NOW() WHERE id=%s'
