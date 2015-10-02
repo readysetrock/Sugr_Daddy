@@ -52,17 +52,8 @@
       <!-- Include all compiled plugins (below), or include individual files as needed -->
    <script src="js/bootstrap.min.js"></script>
 
-   <% # Download the twilio-python library from http://twilio.com/docs/libraries
-       from twilio.rest import TwilioRestClient
 
-       # Find these values at https://twilio.com/user/account
-       account_sid = "ACc4d1c559d131bb713e4dd3b26804bd2b"
-       auth_token = "1cba7d08b8e6d26c3275078a09d58666"
-       client = TwilioRestClient(account_sid, auth_token)
 
-       message = client.messages.create(to="+14158779633", from_="+14152185923",
-       body="Hello there!") %>
-       
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
