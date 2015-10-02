@@ -41,13 +41,9 @@
   <body>
     <div class='container text-center'>
 
-      <form action="/" method="POST">
-            <p></p>
-            <textarea placeholder="Tell her something about you in 144 characters or less" rows="3" cols="40" maxlength="144"></textarea>
-            <p></p>      
-            <button>Send her a message</button></br>
-            <p></p>
-            <button>Back to Profiles</button>
+      <form action="/send_message/{{sessionid}}/{{userid}}" type='hidden' method="POST">
+            <textarea name='send_message' placeholder="Tell her something about you in 144 characters or less" rows="3" cols="40" maxlength="144"></textarea><br>    
+            <button>Send her a message</button><br>
       </form>
     </div>
     <div id="footer" style="width:100%">

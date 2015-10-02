@@ -52,6 +52,15 @@ class User(Model):
         query = 'SELECT * FROM users WHERE id="{}"'.format(id)
         return self.db.query_db(query)
 
+    def get_message(self, id):
+        query='SELECT user_name, messages FROM users LEFT JOIN messages ON users.id=messages.user_id WHERE messages.session_id!="{}"'.format(id)
+        return self.db.query_db(query)
+
+    def send_message(self, info):
+        query='INSERT INTO messages (session_id, user_id, messages, created_at, updated_at) VALUES (%s, %s, %s, NOW(), NOW())'
+        data=[info['session_id'], info['user_id'], info['messages']]
+        return self.db.query_db(query, data)
+
     def login_user(self, login_info):
         EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]*$')
         errors = []

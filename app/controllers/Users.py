@@ -10,6 +10,10 @@ class Users(Controller):
         return self.load_view('landing_page.html')
     def main(self):
         return self.load_view('index.html')
+    def confirmation(self, sessionid, userid):
+        print sessionid
+        print userid
+        return self.load_view('confirmation.html', sessionid=sessionid, userid=userid)
 
     def create(self):
         print "hello create"
@@ -48,8 +52,19 @@ class Users(Controller):
         return self.load_view('profile.html', user=user[0])
 
     def messages(self, id):
-        user = self.models['User'].get_user_by_id(id)
+        user = self.models['User'].get_message(id)
         return self.load_view('messages.html', user=user[0])
+
+    def send_message(self, sessionid, userid):
+        print request.form['send_message']
+        info={
+            'messages': request.form['send_message'],
+            'session_id': sessionid,
+            'user_id': userid
+        }
+        print info
+        self.models['User'].send_message(info)
+        return redirect ('/info')
 
     def login(self):
         print request.form['email']
