@@ -1,10 +1,82 @@
 <!DOCTYPE html>
-<html>
-	<head>
-	</head>
-	<body>
-		<h1>We host chat at icanhazchat!<h2>
-		<h3>Follow the link below!</h3>
-		<a href="https://www.icanhazchat.com/sugarrr">Sugarrr Chat</a>
-	</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="Sugarrrr Chaddy" content="Sugarrrr Chaddy is a place where people can meet people that want to do stuff">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Sugarrr -- Send a message</title>
+
+   <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+        <link rel="icon" type="image/gif" href="{{ url_for('static', filename='favicon.ico') }}">
+
+      
+      <style>
+          form {
+              margin-top: 200px;
+              width:100%;;
+            }
+            #footer {
+              background-color:orange;
+              color:white;
+              clear:both;
+              text-align:center;
+              padding:15px; 
+              font-family: monaco;
+              font-size: 14px;
+            }
+      </style>
+
+  </head>
+  <body>
+    <!-- Fixed navbar -->
+ <div class="navbar navbar-default navbar-fixed-top">                  
+
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><font color=orange>Sugarrr</font></a>
+      </div>
+
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+     <li class="active">
+     <a href="/info">Home</a></li>
+                  <li><a href="/messages/{{session['id']}}">Messages</a></li>
+                  <li><a href="/profile/{{session['id']}}">Profile</a></li>
+          <li><a href="/">Log Out</a></li>                    
+        </ul>
+
+      </div><!--/.nav-collapse -->
+    </div>
+
+  </div>
+    <div class='container text-center'>
+<br><br>
+      <h1>We host chat at icanhazchat!<h2>
+    <h3>Follow the link below!</h3>
+    <a href="https://www.icanhazchat.com/sugarrr">Sugarrr Chat</a>
+    <br><br>
+    </div>
+    <div id="footer" style="width:100%">
+        Copyright © Sugarrr Chady
+    </div>
+
+  </body>
+
 </html>
+
