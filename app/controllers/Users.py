@@ -1,4 +1,9 @@
 from system.core.controller import *
+from twilio.rest import TwilioRestClient
+
+# put your own credentials here 
+ACCOUNT_SID = "AC2db6fbfa88c487d653aebe5ddb673719" 
+AUTH_TOKEN = "d97bff1471f311a1bb386b1fe5f0348a"
 
 class Users(Controller):
     def __init__(self, action):
@@ -47,7 +52,15 @@ class Users(Controller):
     def info(self):
         user = self.models['User'].get_users()
         return self.load_view('user_list.html', user=user)
+
     def chat(self):
+        user=self.models['User'].get_user_by_id(id)
+        client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
+        client.messages.create(
+            to="user['phone']", 
+            from_="+13239057957", 
+            body="A user has accepted your request. Sign into chad chat now and get to know them! ",  
+        )
         return self.load_view('chat.html')
 
     def profile(self, id):

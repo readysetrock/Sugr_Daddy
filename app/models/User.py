@@ -7,7 +7,7 @@ class User(Model):
         super(User, self).__init__()
 
     def create_user(self, info):
-        EMAIL_REGEX = re.compile(r'^[a-za-z0-9\.\+_-]+@[a-za-z0-9\._-]+\.[a-za-z]*$')
+        EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]*$')
         errors = []
 
         if not info['full_name']:
@@ -23,7 +23,9 @@ class User(Model):
         if not info['phone']:
             errors.append('Phone number must be valid!')
         elif len(info['phone']) < 8:
-            errors.append('Phone number should contain country-code, area-code, and number!')
+            errors.append('Not a valid phone number!')
+        elif not re.match('^[1\+\0-9]*$', info['phone']):
+            errors.append('Please enter the phone number as 1+yournumber!')
 
         if not info['email']:
             errors.append('Email cannot be blank')
