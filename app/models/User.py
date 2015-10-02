@@ -7,7 +7,7 @@ class User(Model):
         super(User, self).__init__()
 
     def create_user(self, info):
-        EMAIL_REGEX = re.compile(r'^[a-za-z0-9\.\+_-]+@[a-za-z0-9\._-]+\.[a-za-z]*$')
+        EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]*$')
         errors = []
 
         if not info['full_name']:
@@ -19,6 +19,13 @@ class User(Model):
             errors.append('User Name cannot be blank')
         elif len(info['user_name']) < 2:
             errors.append('Last Name must be at least 2 characters long')
+
+        if not info['phone']:
+            errors.append('Phone number must be valid!')
+        elif len(info['phone']) < 8:
+            errors.append('Not a valid phone number!')
+        elif not re.match('^[1\+\0-9]*$', info['phone']):
+            errors.append('Please enter the phone number as 1+yournumber!')
 
         if not info['email']:
             errors.append('Email cannot be blank')
@@ -37,8 +44,8 @@ class User(Model):
         else:
             password = info['password']
             hashed_pw = self.bcrypt.generate_password_hash(password)
-            query = 'INSERT INTO users (full_name, user_name, email, pw_hash, created_at, updated_at) VALUES (%s,%s,%s,%s, NOW(), NOW())'
-            data=[info['full_name'], info['user_name'], info['email'], hashed_pw]
+            query = 'INSERT INTO users (full_name, user_name, email, phone_number, pw_hash, created_at, updated_at) VALUES (%s,%s,%s,%s,%s, NOW(), NOW())'
+            data=[info['full_name'], info['user_name'], info['email'], info['phone'], hashed_pw]
             self.db.query_db(query, data)
             get_user_query = "SELECT * FROM users ORDER BY id DESC LIMIT 1"
             users = self.db.query_db(get_user_query)
@@ -53,7 +60,7 @@ class User(Model):
         return self.db.query_db(query)
 
     def get_message(self, id):
-        query='SELECT user_name, messages FROM users LEFT JOIN messages ON users.id=messages.session_id WHERE messages.user_id="{}"'.format(id)
+        query='SELECT * FROM users LEFT JOIN messages ON users.id=messages.session_id WHERE messages.user_id="{}"'.format(id)
         return self.db.query_db(query)
 
     def send_message(self, info):

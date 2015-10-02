@@ -1,9 +1,17 @@
 from system.core.controller import *
+<<<<<<< HEAD
 from twilio.rest import TwilioRestClient 
  
 # put your own credentials here 
 ACCOUNT_SID = "AC2db6fbfa88c487d653aebe5ddb673719" 
 AUTH_TOKEN = "d97bff1471f311a1bb386b1fe5f0348a" 
+=======
+from twilio.rest import TwilioRestClient
+
+# put your own credentials here 
+ACCOUNT_SID = "AC2db6fbfa88c487d653aebe5ddb673719" 
+AUTH_TOKEN = "d97bff1471f311a1bb386b1fe5f0348a"
+>>>>>>> 83fd4e2126d84a105692e438c5372e93b8099af9
 
 class Users(Controller):
     def __init__(self, action):
@@ -26,6 +34,7 @@ class Users(Controller):
              "full_name" : request.form['full_name'],
              "user_name" : request.form['user_name'],
              "email" : request.form['email'],
+             "phone" : request.form['phone'],
              "password" : request.form['password'],
              "pw_confirmation" : request.form['confirm_pass']
         }
@@ -36,6 +45,7 @@ class Users(Controller):
             session['full_name'] = create_status['user']['full_name']
             session['user_name'] = create_status['user']['user_name']
             session['email'] = create_status['user']['email']
+            session['phone'] = create_status['user']['phone_number']
             session['password'] = create_status['user']['pw_hash']
             
             return redirect('/info')
@@ -51,6 +61,17 @@ class Users(Controller):
         user = self.models['User'].get_users()
         return self.load_view('user_list.html', user=user)
 
+    def chat(self, id):
+        user=self.models['User'].get_user_by_id(id)
+        print user
+        number = user[0]['phone_number']
+        client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
+        client.messages.create(
+            to=number, 
+            from_="+13239057957", 
+            body="A user has accepted your request. Sign into chad chat now and get to know them! ",  
+        )
+        return self.load_view('chat.html')
 
     def profile(self, id):
         user = self.models['User'].get_user_by_id(id)
