@@ -1,9 +1,17 @@
 from system.core.controller import *
+<<<<<<< HEAD
+from twilio.rest import TwilioRestClient 
+ 
+# put your own credentials here 
+ACCOUNT_SID = "AC2db6fbfa88c487d653aebe5ddb673719" 
+AUTH_TOKEN = "d97bff1471f311a1bb386b1fe5f0348a" 
+=======
 from twilio.rest import TwilioRestClient
 
 # put your own credentials here 
 ACCOUNT_SID = "AC2db6fbfa88c487d653aebe5ddb673719" 
 AUTH_TOKEN = "d97bff1471f311a1bb386b1fe5f0348a"
+>>>>>>> 83fd4e2126d84a105692e438c5372e93b8099af9
 
 class Users(Controller):
     def __init__(self, action):
