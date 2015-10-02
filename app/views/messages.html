@@ -77,7 +77,7 @@
       <tr class="meow"> 
         <td>{{user['user_name']}}</td>
         <td>{{user['messages']}}</td>
-        <td><a href='/chat'> Accept </a> | <a href=""> No Thanks</a></td>
+        <td><a href='/chat/{{user["user_id"]}}'> Accept </a> | <a href=""> No Thanks</a></td>
       </tr>
       {%endfor%}
     </tbody>

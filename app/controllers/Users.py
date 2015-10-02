@@ -53,11 +53,13 @@ class Users(Controller):
         user = self.models['User'].get_users()
         return self.load_view('user_list.html', user=user)
 
-    def chat(self):
+    def chat(self, id):
         user=self.models['User'].get_user_by_id(id)
+        print user
+        number = user[0]['phone_number']
         client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
         client.messages.create(
-            to="user['phone']", 
+            to=number, 
             from_="+13239057957", 
             body="A user has accepted your request. Sign into chad chat now and get to know them! ",  
         )

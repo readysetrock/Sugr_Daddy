@@ -60,7 +60,7 @@ class User(Model):
         return self.db.query_db(query)
 
     def get_message(self, id):
-        query='SELECT user_name, messages FROM users LEFT JOIN messages ON users.id=messages.session_id WHERE messages.user_id="{}"'.format(id)
+        query='SELECT * FROM users LEFT JOIN messages ON users.id=messages.session_id WHERE messages.user_id="{}"'.format(id)
         return self.db.query_db(query)
 
     def send_message(self, info):
