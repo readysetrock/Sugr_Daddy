@@ -21,6 +21,7 @@ class Users(Controller):
              "full_name" : request.form['full_name'],
              "user_name" : request.form['user_name'],
              "email" : request.form['email'],
+             "phone" : request.form['phone'],
              "password" : request.form['password'],
              "pw_confirmation" : request.form['confirm_pass']
         }
@@ -31,6 +32,7 @@ class Users(Controller):
             session['full_name'] = create_status['user']['full_name']
             session['user_name'] = create_status['user']['user_name']
             session['email'] = create_status['user']['email']
+            session['phone'] = create_status['user']['phone_number']
             session['password'] = create_status['user']['pw_hash']
             
             return redirect('/info')
@@ -45,7 +47,8 @@ class Users(Controller):
     def info(self):
         user = self.models['User'].get_users()
         return self.load_view('user_list.html', user=user)
-
+    def chat(self):
+        return self.load_view('chat.html')
 
     def profile(self, id):
         user = self.models['User'].get_user_by_id(id)

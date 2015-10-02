@@ -20,6 +20,11 @@ class User(Model):
         elif len(info['user_name']) < 2:
             errors.append('Last Name must be at least 2 characters long')
 
+        if not info['phone']:
+            errors.append('Phone number must be valid!')
+        elif len(info['phone']) < 8:
+            errors.append('Phone number should contain country-code, area-code, and number!')
+
         if not info['email']:
             errors.append('Email cannot be blank')
         elif not EMAIL_REGEX.match(info['email']):
@@ -37,8 +42,8 @@ class User(Model):
         else:
             password = info['password']
             hashed_pw = self.bcrypt.generate_password_hash(password)
-            query = 'INSERT INTO users (full_name, user_name, email, pw_hash, created_at, updated_at) VALUES (%s,%s,%s,%s, NOW(), NOW())'
-            data=[info['full_name'], info['user_name'], info['email'], hashed_pw]
+            query = 'INSERT INTO users (full_name, user_name, email, phone_number, pw_hash, created_at, updated_at) VALUES (%s,%s,%s,%s,%s, NOW(), NOW())'
+            data=[info['full_name'], info['user_name'], info['email'], info['phone'], hashed_pw]
             self.db.query_db(query, data)
             get_user_query = "SELECT * FROM users ORDER BY id DESC LIMIT 1"
             users = self.db.query_db(get_user_query)
