@@ -58,12 +58,13 @@
         <br>
 
       <h1>Update your profile here:</h1>
-      <form action="/status" method="POST">
+      <form action="/update_profile/{{session['id']}}" method="POST">
          <p><img src="{{img}}" width='200' height='200' alt="profile" id="profile"/>               
          </p>
          <p><button type="Submit">Change profile picture</button>
-                   <p><textarea>{{user['description']}}</textarea></p>         
+                   <p><textarea name='update_profile'>{{user['description']}}</textarea></p>         
                <p><button type="Submit">Update profile</button></p>
+      </form>
     </div>
 
     </div>

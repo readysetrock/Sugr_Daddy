@@ -53,12 +53,17 @@ class User(Model):
         return self.db.query_db(query)
 
     def get_message(self, id):
-        query='SELECT user_name, messages FROM users LEFT JOIN messages ON users.id=messages.user_id WHERE messages.session_id!="{}"'.format(id)
+        query='SELECT user_name, messages FROM users LEFT JOIN messages ON users.id=messages.session_id WHERE messages.user_id="{}"'.format(id)
         return self.db.query_db(query)
 
     def send_message(self, info):
         query='INSERT INTO messages (session_id, user_id, messages, created_at, updated_at) VALUES (%s, %s, %s, NOW(), NOW())'
         data=[info['session_id'], info['user_id'], info['messages']]
+        return self.db.query_db(query, data)
+
+    def update_profile(self, info):
+        query='UPDATE users SET description= %s, updated_at=NOW() WHERE id=%s'
+        data=[info['description'],info['user_id']]
         return self.db.query_db(query, data)
 
     def login_user(self, login_info):

@@ -53,7 +53,8 @@ class Users(Controller):
 
     def messages(self, id):
         user = self.models['User'].get_message(id)
-        return self.load_view('messages.html', user=user[0])
+        print user
+        return self.load_view('messages.html', user=user)
 
     def send_message(self, sessionid, userid):
         print request.form['send_message']
@@ -65,6 +66,14 @@ class Users(Controller):
         print info
         self.models['User'].send_message(info)
         return redirect ('/info')
+
+    def update_profile(self, id):
+        info={
+            'description': request.form['update_profile'],
+            'user_id': session['id']
+        }
+        self.models['User'].update_profile(info)
+        return redirect ('/profile/{}'.format(id))
 
     def login(self):
         print request.form['email']
