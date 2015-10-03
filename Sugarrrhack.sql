@@ -32,7 +32,7 @@ CREATE TABLE `messages` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,7 +63,7 @@ CREATE TABLE `users` (
   `updated_at` datetime DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,6 +72,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (49,'Jay','Jay Dog Millionair','jay@mail.com','+19703137329','$2a$12$oWWhvsjdMYHHtpGT56fGoepPzprZc5RFQwzbVEJ7iSS8QndSYyKqK','http://static.ibnlive.in.com/pix/slideshow/11-2008/slumdog-millionaire-screening/slum_dog_5_630.jpg ','2015-10-02 13:28:59','2015-10-02 16:22:58','Anything, help!'),(50,'Pariece ','Pariece Hilton','pariece@mail.com','+19493850109','$2a$12$hCuqEtjpCClafI7gm7XSweQ4NFwZWosnAwxbfaDRLumbKZJIL7En.','http://sev.h-cdn.co/assets/cm/15/09/54ee39d63b1b0_-_sev-paris-hilton-1-061010-lgn.jpg ','2015-10-02 13:30:08','2015-10-02 13:42:16','One night in Pariece ;)'),(51,'Shain','Shain Bieber','shain@mail.com','+19096332350','$2a$12$SrHHilbhfrSd37roQUW2suDJUPsiBv3BtV6pRpV8lvBBTKIGifl5O','https://upload.wikimedia.org/wikipedia/commons/e/ef/Justin_Bieber_mugshot,_front.jpg','2015-10-02 13:30:37','2015-10-02 13:35:36','Don\'t stop Beliebing!'),(52,'Chad','The Chad','chad@mail.com','+17064831345','$2a$12$B/Ex01mrormToqktHe.caepoGTgdD4wT7RDs9Vx9Iq1OnEyA0b7Z2','https://media.licdn.com/media/AAEAAQAAAAAAAAMcAAAAJGY3YzQ3MjAyLTlhODUtNGRmZS04ZDY4LWEyOGE1NDdkNjc2OQ.jpg','2015-10-02 13:32:17','2015-10-02 13:46:07','Who knows...I could be faster than Michael Phelps...I\'ve just never swam.'),(53,'jared','jared','jared@mail.com','+19703137329','$2a$12$rS0jC6uGnz1n8i1Gc4Trwez7QobTry4.OrUEouHFGoFKQpGT3DbcC',NULL,'2015-10-02 16:25:10','2015-10-02 16:25:27','wooow');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -84,4 +85,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-10-01 18:55:40
+-- Dump completed on 2015-10-03  1:19:58

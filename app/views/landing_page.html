@@ -60,6 +60,7 @@
 
 		</style>
 	</head>
+	
 	<body>
 		<div id="wrapper">
 		<nav class="navbar navbar-default">
@@ -75,8 +76,18 @@
 		      </ul>
 		      <form action="/main" method="post">
 		    <div class="btn-group">
-			  <a href="/main"><button type="button" class="btn btn-primary">Login</button></a>
-			  <a href="/main"><button type="button" class="btn btn-primary">Register</button></a>
+			  <a href="/main"><button type="button" class="btn btn-primary" onclick='myFunction()'>Login</button></a>
+			<script>
+				function myFunction(){
+				alert("Must be 18 or older");
+				}
+			</script>
+			  <a href="/main"><button type="button" class="btn btn-primary" onclick='myFunction()'>Register</button></a>
+			<script>
+				function myFunction(){
+				alert("Must be 18 or older to enter");
+				}
+			</script>
 			</div>
 		    </div>
 		  </div>
